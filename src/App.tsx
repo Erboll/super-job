@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Navbar from "./components/Navbar/Navbar";
 const url = "https://startup-summer-2023-proxy.onrender.com/2.0/";
 console.log(process.env);
 const authAxios = axios.create({
@@ -16,7 +17,11 @@ function App() {
     console.log(result.data);
   };
   fetchdata();
-  return <div className="App"></div>;
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
 
 export default App;
