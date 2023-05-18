@@ -1,3 +1,7 @@
 .container{
     width: 1116px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    padding-top: 40px;
 }
