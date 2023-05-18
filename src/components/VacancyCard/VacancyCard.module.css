@@ -1,0 +1,42 @@
+.card {
+  padding: 24px;
+  gap: 90px;
+  width: 773px;
+  height: 137px;
+  background: #FFFFFF;
+  border: 1px solid #EAEBED;
+  border-radius: 12px;
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.iconStar {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.tag {
+    color: #5E96FC;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24.2px;
+    margin-bottom: 9px;
+}
+
+.salary {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: #232134;
+}
+
+.schedule{
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.locationIcon {
+    padding-top: 15px;
+}

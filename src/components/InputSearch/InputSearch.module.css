@@ -1,5 +1,6 @@
 .inputWithIcon {
     position: relative;
+    margin-bottom: 16px;
 }
 .icon {
     background: url(Search.svg) no-repeat;
