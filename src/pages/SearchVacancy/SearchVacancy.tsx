@@ -5,6 +5,7 @@ import VacancyCard from "../../components/VacancyCard/VacancyCard";
 import { useSearchVacancyQuery } from "../../store/super-job/superJob.api";
 import { Root } from "../../types";
 import styles from "./SearchVacancy.module.css";
+import Preloader from "../../components/Preloader/Preloader";
 
 const SearchVacancy = () => {
   const [vacancy, setVacancy] = useState<Root>();
@@ -20,6 +21,8 @@ const SearchVacancy = () => {
       <Filter />
       <div>
         <InputSearch />
+        {isError && <p>Ошибка...</p>}
+        {isLoading && <Preloader />}
         <VacancyCard vacancy={vacancy && vacancy.objects} />
       </div>
     </div>

@@ -1,19 +1,22 @@
-import React from "react";
-import { VacancyCardProps } from "./VacancyCard.props";
-import styles from "./VacancyCard.module.css";
-import starIcon from "./Star.svg";
+import { Link } from "react-router-dom";
 import LocationIcon from "./LocationIcon.svg";
+import starIcon from "./Star.svg";
+import styles from "./VacancyCard.module.css";
+import { VacancyCardProps } from "./VacancyCard.props";
 const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
   return (
     <>
       {vacancy?.map((value) => (
         <div key={value.id} {...props} className={styles.card}>
-          <h2 className={styles.tag}>{value.profession}</h2>
+          <Link to={"/search/one-vacancy/" + value.id} className={styles.tag}>
+            {value.profession}
+          </Link>
           <img src={starIcon} alt={starIcon} className={styles.iconStar} />
           <div className={styles.salary}>
-            зп от {value.payment_from}
-            {value.payment_to === 0 ? "" : " - " + value.payment_to}
-            <span className={styles.schedule}></span>
+            з/п от {value.payment_from}
+            {value.payment_to === 0 ? "" : " - " + value.payment_to}{" "}
+            <span className={styles.dot}></span>
+            <span className={styles.schedule}>{value.type_of_work.title}</span>
           </div>
           <img
             src={LocationIcon}
