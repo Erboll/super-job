@@ -17,6 +17,10 @@
   top: 25px;
   right: 25px;
 }
+.active {
+  background-color: #5E96FC;
+}
+
 
 .tag {
     color: #5E96FC;

@@ -11,7 +11,7 @@ export const jobApi = createApi({
     endpoints:build => ({
         searchVacancy: build.query<Root, string>({
             query: () => ({
-                url:`vacancies/?t=4&count=5`,
+                url:`vacancies/?t=4&count=10`,
                 headers: {
                     "x-secret-key": process.env.REACT_APP_API_KEY,
                     "X-Api-App-Id": process.env.REACT_APP_SECRET_KEY,

@@ -5,6 +5,8 @@ export interface Root {
     subscription_id: number
     subscription_active: boolean
   }
+
+
   
   export interface TypeVacancy {
     canEdit: boolean

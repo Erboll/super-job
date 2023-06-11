@@ -1,9 +1,24 @@
 import { Link } from "react-router-dom";
+import { useActions } from "../../hooks/actions";
+import { TypeVacancy } from "../../types";
 import LocationIcon from "./LocationIcon.svg";
-import starIcon from "./Star.svg";
+import { ReactComponent as StarIcon } from "./Star.svg";
 import styles from "./VacancyCard.module.css";
 import { VacancyCardProps } from "./VacancyCard.props";
+import { useState } from "react";
 const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
+  const { addFavorite, removeFavorite } = useActions();
+  const [test, setTest] = useState(false);
+
+  const removeFav = (value: TypeVacancy) => {
+    removeFavorite(value);
+  };
+
+  const addToFavorite = (value: TypeVacancy) => {
+    addFavorite(value);
+    setTest((prev) => !prev);
+  };
+
   return (
     <>
       {vacancy?.map((value) => (
@@ -11,7 +26,13 @@ const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
           <Link to={"/search/one-vacancy/" + value.id} className={styles.tag}>
             {value.profession}
           </Link>
-          <img src={starIcon} alt={starIcon} className={styles.iconStar} />
+          <StarIcon
+            className={styles.iconStar}
+            fill={test ? "#5E96FC" : "none"}
+            stroke={test ? "none" : "#ACADB9"}
+            onClick={() => addToFavorite(value)}
+          />
+          <button onClick={() => removeFav(value)}>delete</button>
           <div className={styles.salary}>
             з/п от {value.payment_from}
             {value.payment_to === 0 ? "" : " - " + value.payment_to}{" "}

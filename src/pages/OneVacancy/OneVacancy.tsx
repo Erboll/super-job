@@ -11,6 +11,7 @@ import { OneVacancyProps } from "./OneVacancy.props";
 
 const OneVacancy = ({ children, ...props }: OneVacancyProps) => {
   const [vacancy, setVacancy] = useState<TypeVacancy | null>(null);
+
   const { id } = useParams();
   const getOneVacancy = useCallback(async () => {
     const request = await axios.get(
@@ -37,7 +38,6 @@ const OneVacancy = ({ children, ...props }: OneVacancyProps) => {
         <div {...props}>
           <div key={vacancy.id} {...props} className={styles.card}>
             <h2 className={styles.tag}>{vacancy.profession}</h2>
-
             <img src={starIcon} alt={starIcon} className={styles.iconStar} />
             <div className={styles.salary}>
               з/п от {vacancy.payment_from === 0 ? "" : vacancy.payment_from}{" "}
@@ -46,6 +46,7 @@ const OneVacancy = ({ children, ...props }: OneVacancyProps) => {
               <span className={styles.schedule}>
                 {vacancy.type_of_work.title}
               </span>
+              b
             </div>
             <img
               src={LocationIcon}
