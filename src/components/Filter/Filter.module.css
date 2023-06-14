@@ -1,0 +1,73 @@
+.filter{
+  width: 315px;
+  height: 360px;
+  border: 1px solid #EAEBED;
+  border-radius: 12px;
+  background-color: #fff;
+}
+
+.title {
+    padding-top: 20px;
+    padding-left: 20px;
+    color: #232134;
+    font-size: 20px;
+    line-height: 20px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.label, .labelSalary {
+    color:#232134;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19.36px;
+}
+
+.resetBtn {
+    border: none;
+    margin-right: 20px;
+    margin-top: 20px;
+    background-color: inherit;
+    color: #ACADB9;
+    font-size: 14px;
+    line-height: 20px;
+}
+.select {
+    padding: 8px 12px;
+    border: 1px solid #D5D6DC;
+    border-radius: 8px;
+    width: 100%;
+    background-color: white;
+    margin-top: 8px;
+    margin-bottom: 20px;
+    color: #ACADB9;
+    font-weight: 400;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.form {
+    padding: 20px;
+}
+
+.salaryFrom , .salaryTo {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border: 1px solid #D5D6DC;
+    border-radius: 8px;
+    background-color: white;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.salaryFrom::placeholder, .salaryTo::placeholder {
+    color:#ACADB9
+}
+
+.btn {
+    margin-top: 20px;
+}

@@ -1,0 +1,25 @@
+.pagination {
+    display: inline-block;
+    margin-right: 8px;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #D5D6DC;
+    border-radius: 4px;
+    color: #232134;
+    font-size: 16px;
+    line-height: 22.4px;
+}
+ul {
+    text-align: center;
+}
+
+
+.divPag {
+    margin-bottom: 100px;
+    margin-top: 40px;
+}
+
+.pagination:hover {
+    background-color: #5E96FC;
+    color: white;
+}

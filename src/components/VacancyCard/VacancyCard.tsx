@@ -32,7 +32,6 @@ const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
             stroke={test ? "none" : "#ACADB9"}
             onClick={() => addToFavorite(value)}
           />
-          <button onClick={() => removeFav(value)}>delete</button>
           <div className={styles.salary}>
             з/п от {value.payment_from}
             {value.payment_to === 0 ? "" : " - " + value.payment_to}{" "}
