@@ -1,66 +1,14 @@
 .card {
-    padding: 24px;
     width: 773px;
     height: calc(100% - 180px);
-    background: #FFFFFF;
     border: 1px solid #EAEBED;
     border-radius: 12px;
     position: relative;
-    margin-bottom: 16px;
     display: block;
     text-decoration: none;
     margin: 16px auto;
   }
   
-  
-  .iconStar {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-  }
-  .active {
-    background-color: #5E96FC;
-  }
-  
-  .tag {
-      color: #232134;
-      font-weight: 700;
-      font-size: 28px;
-      line-height: 33.89px;
-      margin-bottom: 15px;
-      text-decoration: none;
-      display: block;
-  }
-  
-  .salary {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
-      color: #232134;
-      width: 380px;
-  }
-  
-  .schedule{
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 20px;
-  }
-  
-  .locationIcon {
-      padding-top: 15px;
-  }
-
-  .dot{
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    border: 1px solid#7B7C88;
-    background-color: #7B7C88;
-    border-radius: 50%;
-  }
 
   .description {
     width: 773px;
@@ -69,7 +17,7 @@
     border-radius: 12px;
     background: #FFFFFF;
     margin: auto;
-    padding: 24px;
+    padding: 34px;
   }
 
   .description p {

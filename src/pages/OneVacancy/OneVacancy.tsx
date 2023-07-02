@@ -8,6 +8,8 @@ import starIcon from "../../components/VacancyCard/Star.svg";
 import { TypeVacancy } from "../../types";
 import styles from "./OneVacancy.module.css";
 import { OneVacancyProps } from "./OneVacancy.props";
+import { useAppSelector } from "../../hooks/redux";
+import VacancyCard from "../../components/VacancyCard/VacancyCard";
 
 const OneVacancy = ({ children, ...props }: OneVacancyProps) => {
   const [vacancy, setVacancy] = useState<TypeVacancy | null>(null);
@@ -35,26 +37,8 @@ const OneVacancy = ({ children, ...props }: OneVacancyProps) => {
   return (
     <>
       {vacancy ? (
-        <div {...props}>
-          <div key={vacancy.id} {...props} className={styles.card}>
-            <h2 className={styles.tag}>{vacancy.profession}</h2>
-            <img src={starIcon} alt={starIcon} className={styles.iconStar} />
-            <div className={styles.salary}>
-              з/п от {vacancy.payment_from === 0 ? "" : vacancy.payment_from}{" "}
-              {vacancy.payment_to === 0 ? "" : " - " + vacancy.payment_to}{" "}
-              <span className={styles.dot}></span>
-              <span className={styles.schedule}>
-                {vacancy.type_of_work.title}
-              </span>
-              b
-            </div>
-            <img
-              src={LocationIcon}
-              alt={LocationIcon}
-              className={styles.locationIcon}
-            />
-            <span>{vacancy.town.title}</span>
-          </div>
+        <div className={styles.card}>
+          <VacancyCard vacancy={vacancy} />
           <div className={styles.description}>{text}</div>
         </div>
       ) : (

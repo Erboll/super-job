@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useActions } from "../../hooks/actions";
 import { TypeVacancy } from "../../types";
@@ -5,47 +6,57 @@ import LocationIcon from "./LocationIcon.svg";
 import { ReactComponent as StarIcon } from "./Star.svg";
 import styles from "./VacancyCard.module.css";
 import { VacancyCardProps } from "./VacancyCard.props";
-import { useState } from "react";
+import { useAppSelector } from "../../hooks/redux";
 const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
   const { addFavorite, removeFavorite } = useActions();
-  const [test, setTest] = useState(false);
-
-  const removeFav = (value: TypeVacancy) => {
-    removeFavorite(value);
-  };
+  const { favorites } = useAppSelector((state) => state.superJob);
+  const [isFav, setIsFav] = useState(favorites.includes(vacancy));
 
   const addToFavorite = (value: TypeVacancy) => {
     addFavorite(value);
-    setTest((prev) => !prev);
+    setIsFav(true);
+  };
+
+  const removeFav = (value: TypeVacancy) => {
+    removeFavorite(value);
+    setIsFav(false);
   };
 
   return (
     <>
-      {vacancy?.map((value) => (
-        <div key={value.id} {...props} className={styles.card}>
-          <Link to={"/search/one-vacancy/" + value.id} className={styles.tag}>
-            {value.profession}
-          </Link>
+      <div key={vacancy.id} {...props} className={styles.card}>
+        <Link to={"/search/one-vacancy/" + vacancy.id} className={styles.tag}>
+          {vacancy.profession}
+        </Link>
+        {!isFav && (
           <StarIcon
             className={styles.iconStar}
-            fill={test ? "#5E96FC" : "none"}
-            stroke={test ? "none" : "#ACADB9"}
-            onClick={() => addToFavorite(value)}
+            fill="none"
+            stroke="#ACADB9"
+            onClick={() => addToFavorite(vacancy)}
           />
-          <div className={styles.salary}>
-            з/п от {value.payment_from}
-            {value.payment_to === 0 ? "" : " - " + value.payment_to}{" "}
-            <span className={styles.dot}></span>
-            <span className={styles.schedule}>{value.type_of_work.title}</span>
-          </div>
-          <img
-            src={LocationIcon}
-            alt={LocationIcon}
-            className={styles.locationIcon}
+        )}
+        {isFav && (
+          <StarIcon
+            className={styles.iconStar}
+            fill="#5E96FC"
+            stroke="none"
+            onClick={() => removeFav(vacancy)}
           />
-          <span>{value.town.title}</span>
+        )}
+        <div className={styles.salary}>
+          з/п от {vacancy.payment_from}
+          {vacancy.payment_to === 0 ? "" : " - " + vacancy.payment_to}{" "}
+          <span className={styles.dot}></span>
+          <span className={styles.schedule}>{vacancy.type_of_work.title}</span>
         </div>
-      ))}
+        <img
+          src={LocationIcon}
+          alt={LocationIcon}
+          className={styles.locationIcon}
+        />
+        <span>{vacancy.town.title}</span>
+      </div>
     </>
   );
 };

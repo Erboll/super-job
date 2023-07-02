@@ -63,6 +63,12 @@ export interface Root {
     longitude?: number
     video?: Video
   }
+
+  export interface FilterType {
+    select:string;
+    salaryFrom:number;
+    salaryTo:number;
+  }
   
   export interface Metro {
     id: number

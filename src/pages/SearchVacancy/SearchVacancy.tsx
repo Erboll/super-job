@@ -7,11 +7,12 @@ import { Root } from "../../types";
 import styles from "./SearchVacancy.module.css";
 import Preloader from "../../components/Preloader/Preloader";
 import Pagination from "../../components/Pagination/Pagination";
+import Vacancies from "../../components/Vacancies/Vacancies";
 
 const SearchVacancy = () => {
   const [vacancy, setVacancy] = useState<Root>();
   const [currentPage, setCurrentPage] = useState(1);
-  const [jobsPerPage] = useState(10);
+  const [jobsPerPage] = useState(5);
   const { isError, isLoading, data } = useSearchVacancyQuery("");
   useEffect(() => {
     if (data) {
@@ -36,7 +37,7 @@ const SearchVacancy = () => {
         <InputSearch />
         {isError && <p>Ошибка...</p>}
         {isLoading && <Preloader />}
-        <VacancyCard vacancy={vacancy && currentVacancy} />
+        <Vacancies vacancy={vacancy && currentVacancy} />
         <Pagination
           jobsPerPage={jobsPerPage}
           totalVacancies={data?.objects.length}

@@ -33,3 +33,17 @@
       color: #ACADB9;
   }
 
+
+  .search  {
+    margin-top: 50px;
+    margin-bottom: 80px;
+  }
+
+  .search h2 {
+    margin: 20px;
+  }
+
+  .search hr {
+    margin-top: 80px;
+    width: 775px;
+  }
