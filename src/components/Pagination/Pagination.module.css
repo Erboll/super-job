@@ -23,3 +23,15 @@ ul {
     background-color: #5E96FC;
     color: white;
 }
+.activePagination {
+    display: inline-block;
+    background-color: #5E96FC;
+    margin-right: 8px;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #D5D6DC;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    line-height: 22.4px;
+}

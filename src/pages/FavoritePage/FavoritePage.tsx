@@ -30,6 +30,7 @@ const FavoritePage = () => {
       <Vacancies vacancy={currentIndex} />
       <Pagination
         totalVacancies={favorites.length}
+        currentPage={currentPage}
         jobsPerPage={favoriteJobPerPage}
         paginate={paginate}
       />

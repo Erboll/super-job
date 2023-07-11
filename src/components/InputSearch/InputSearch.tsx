@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useSearchVacancyQuery } from "../../store/super-job/superJob.api";
 import { Root, TypeVacancy } from "../../types";
 import Button from "../Button/Button";
-import styles from "./InputSearch.module.css";
-import VacancyCard from "../VacancyCard/VacancyCard";
 import Vacancies from "../Vacancies/Vacancies";
+import styles from "./InputSearch.module.css";
 
 const InputSearch = () => {
   const [searchData, setSearchData] = useState<TypeVacancy[]>([]);
   const { data } = useSearchVacancyQuery("");
+  const [showVacancy, setShowVacancy] = useState(true);
   const [value, setValue] = useState("");
 
   const searchVacancy = (vac: Root | undefined) => {
@@ -16,7 +16,10 @@ const InputSearch = () => {
       v.profession.toLocaleLowerCase().includes(value.toLocaleLowerCase())
     );
     if (filteredInput) {
-      return setSearchData(filteredInput);
+      setSearchData(filteredInput);
+    }
+    if (searchData.length > 0) {
+      setShowVacancy(true);
     }
   };
 
@@ -25,7 +28,16 @@ const InputSearch = () => {
   if (searchData.length > 0) {
     showSearchVacancy = (
       <div className={styles.search}>
-        <h2>Найденные вакансии</h2>
+        <div className={styles.btns}>
+          <h2>Найденные вакансии</h2>
+          <button
+            onClick={() => setShowVacancy((prev) => !prev)}
+            className={styles.btn}
+          >
+            Вернуться к вакансиям
+          </button>
+        </div>
+
         <Vacancies vacancy={searchData} />
         <hr />
       </div>
@@ -46,7 +58,7 @@ const InputSearch = () => {
         <Button onClick={() => searchVacancy(data)} size="medium">
           Поиск
         </Button>
-        {showSearchVacancy}
+        {showVacancy && showSearchVacancy}
       </div>
     </>
   );

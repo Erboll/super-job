@@ -1,7 +1,6 @@
 .card {
   padding: 24px;
   width: 773px;
-  height: 137px;
   background: #FFFFFF;
   border: 1px solid #EAEBED;
   border-radius: 12px;
@@ -30,6 +29,14 @@
     margin-bottom: 15px;
     text-decoration: none;
     display: block;
+    padding-right: 50px;
+}
+.location {
+  width: 85px;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: space-between;
 }
 
 .salary {
@@ -48,9 +55,6 @@
   line-height: 20px;
 }
 
-.locationIcon {
-    padding-top: 15px;
-}
 
 
 .dot{
@@ -60,4 +64,8 @@
   border: 1px solid#7B7C88;
   background-color: #7B7C88;
   border-radius: 50%;
+}
+
+.city {
+  display: inline-block;
 }

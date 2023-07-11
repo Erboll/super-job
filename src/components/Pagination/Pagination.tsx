@@ -1,9 +1,9 @@
-import React from "react";
-import { PaginationProps } from "./Pagination.props";
 import styles from "./Pagination.module.css";
+import { PaginationProps } from "./Pagination.props";
 
 const Pagination = ({
   totalVacancies,
+  currentPage,
   jobsPerPage,
   paginate,
 }: PaginationProps) => {
@@ -18,7 +18,9 @@ const Pagination = ({
       <ul>
         {pageNumbers.map((num) => (
           <li
-            className={styles.pagination}
+            className={
+              num === currentPage ? styles.activePagination : styles.pagination
+            }
             key={num}
             onClick={() => paginate(num)}
           >

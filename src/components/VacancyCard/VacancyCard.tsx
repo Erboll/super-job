@@ -50,12 +50,14 @@ const VacancyCard = ({ vacancy, children, ...props }: VacancyCardProps) => {
           <span className={styles.dot}></span>
           <span className={styles.schedule}>{vacancy.type_of_work.title}</span>
         </div>
-        <img
-          src={LocationIcon}
-          alt={LocationIcon}
-          className={styles.locationIcon}
-        />
-        <span>{vacancy.town.title}</span>
+        <div className={styles.location}>
+          <img
+            src={LocationIcon}
+            alt={LocationIcon}
+            className={styles.locationIcon}
+          />
+          <span className={styles.city}>{vacancy.town.title}</span>
+        </div>
       </div>
     </>
   );

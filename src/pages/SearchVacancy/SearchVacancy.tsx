@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
 import Filter from "../../components/Filter/Filter";
 import InputSearch from "../../components/InputSearch/InputSearch";
-import VacancyCard from "../../components/VacancyCard/VacancyCard";
+import Pagination from "../../components/Pagination/Pagination";
+import Preloader from "../../components/Preloader/Preloader";
+import Vacancies from "../../components/Vacancies/Vacancies";
 import { useSearchVacancyQuery } from "../../store/super-job/superJob.api";
 import { Root } from "../../types";
 import styles from "./SearchVacancy.module.css";
-import Preloader from "../../components/Preloader/Preloader";
-import Pagination from "../../components/Pagination/Pagination";
-import Vacancies from "../../components/Vacancies/Vacancies";
 
 const SearchVacancy = () => {
   const [vacancy, setVacancy] = useState<Root>();
@@ -30,6 +29,7 @@ const SearchVacancy = () => {
   const paginate = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
+
   return (
     <div className={styles.container}>
       <Filter />
@@ -40,6 +40,7 @@ const SearchVacancy = () => {
         <Vacancies vacancy={vacancy && currentVacancy} />
         <Pagination
           jobsPerPage={jobsPerPage}
+          currentPage={currentPage}
           totalVacancies={data?.objects.length}
           paginate={paginate}
         />

@@ -47,3 +47,15 @@
     margin-top: 80px;
     width: 775px;
   }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .btn  {
+    border: none;
+    background: none;
+    margin-right: 120px;
+    font-size: 18px;
+  }

@@ -11,11 +11,15 @@
     line-height: 29px;
 }
 
+
 .btn {
     margin-top: 32px;
+    display: inline-block;
     color: #3B7CD3;
     padding: 10px 24px;
     background: #DEECFF;
     border-radius: 8px;
     border: none;
+    text-decoration: none;
 }
+
